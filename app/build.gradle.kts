@@ -73,9 +73,7 @@ dependencies {
 
 
     val coroutine_version = "1.7.3"
-    val moshi = "1.14.0"
     val hilt_version = "2.49"
-    val retrofit = "2.9.0"
     val lifecycle_version = "2.6.2"
     val lifecycle_viewmodel_compose_version = "2.6.2"
 
@@ -89,13 +87,6 @@ dependencies {
     implementation("androidx.lifecycle:lifecycle-viewmodel-savedstate:$lifecycle_version")
 
     implementation("androidx.lifecycle:lifecycle-viewmodel-compose:$lifecycle_viewmodel_compose_version")
-
-    //retrofit
-    implementation("com.squareup.retrofit2:retrofit:$retrofit")
-    implementation("com.squareup.retrofit2:converter-moshi:$retrofit")
-
-    //moshi
-    implementation("com.squareup.moshi:moshi-kotlin:$moshi")
 
     //dagger hilt
     implementation("com.google.dagger:hilt-android:$hilt_version")

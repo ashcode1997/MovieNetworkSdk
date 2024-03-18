@@ -35,7 +35,7 @@ import coil.request.ImageRequest
 import coil.transform.CircleCropTransformation
 import com.ashcode1997.moviesappcompose.R
 import com.example.moviesappcompose.data.model.Movies
-import com.example.moviesappcompose.data.network.ApiService
+import com.example.networksdk.BASE_POSTER_URL
 
 @Composable
 fun MovieScreen(
@@ -98,7 +98,7 @@ private fun EachRow(
             Image(
                 painter = rememberAsyncImagePainter(
                     model = ImageRequest.Builder(LocalContext.current)
-                        .data("${ApiService.IMAGE_URL}${res.poster_path}")
+                        .data("$BASE_POSTER_URL${res.poster_path}")
                         .placeholder(R.drawable.ic_launcher_foreground)
                         .crossfade(true)
                         .transformations(CircleCropTransformation())

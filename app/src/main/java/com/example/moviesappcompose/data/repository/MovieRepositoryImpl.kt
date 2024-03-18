@@ -1,9 +1,7 @@
 package com.example.moviesappcompose.data.repository
 
 import com.example.moviesappcompose.common.ApiState
-import com.example.moviesappcompose.common.base.BaseRepository
 import com.example.moviesappcompose.data.model.Movies
-import com.example.moviesappcompose.data.network.ApiService
 import com.example.moviesappcompose.features.movies.domain.repository.MovieRepository
 import com.example.networksdk.Http
 import com.example.networksdk.JSONObjectListener
@@ -16,8 +14,7 @@ import kotlin.coroutines.resume
 import kotlin.coroutines.suspendCoroutine
 
 class MovieRepositoryImpl @Inject constructor(
-    private val apiService: ApiService
-) : MovieRepository, BaseRepository() {
+) : MovieRepository {
     override suspend fun getMovies(): Flow<ApiState<Movies>> = flow {
         try {
             val jsonString = fetchMoviesJson()
