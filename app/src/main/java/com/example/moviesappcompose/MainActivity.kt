@@ -8,8 +8,8 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Surface
 import androidx.compose.ui.Modifier
-import com.example.moviesappcompose.features.movies.ui.MovieNavigation
 import com.example.moviesappcompose.features.movies.ui.MovieViewModel
+import com.example.moviesappcompose.features.movies.ui.screen
 import com.example.moviesappcompose.ui.theme.MoviesAppComposeTheme
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -24,7 +24,7 @@ class MainActivity : ComponentActivity() {
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colorScheme.background
                 ) {
-                    MovieNavigation(viewModel)
+                    screen(viewModel)
                 }
             }
         }

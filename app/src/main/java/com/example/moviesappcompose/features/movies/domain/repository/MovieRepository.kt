@@ -6,5 +6,5 @@ import kotlinx.coroutines.flow.Flow
 
 interface MovieRepository {
 
-    suspend fun getMovies(): Flow<ApiState<Movies>>
+    suspend fun getMovies(key : String): Flow<ApiState<Movies>>
 }

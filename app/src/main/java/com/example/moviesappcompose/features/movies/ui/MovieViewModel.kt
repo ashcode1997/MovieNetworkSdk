@@ -31,9 +31,10 @@ class MovieViewModel @Inject constructor(
         _movieDetails.value = data
     }
 
-    init {
+
+    fun fetchLatestMovies(key : String){
         viewModelScope.launch(Dispatchers.IO) {
-            useCase.getMovies()
+            useCase.getMovies(key)
                 .doOnSuccess {
                     _res.value = MovieState(
                         data = it!!
@@ -50,6 +51,7 @@ class MovieViewModel @Inject constructor(
         }
     }
 }
+
 
 
 data class MovieState(

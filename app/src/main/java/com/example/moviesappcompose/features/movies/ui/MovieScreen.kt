@@ -19,6 +19,7 @@ import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.ui.Alignment.Companion.Center
 import androidx.compose.ui.Alignment.Companion.CenterVertically
 import androidx.compose.ui.Modifier
@@ -40,8 +41,13 @@ import com.example.networksdk.BASE_POSTER_URL
 @Composable
 fun MovieScreen(
     viewModel: MovieViewModel = hiltViewModel(),
-    navHostController: NavHostController
+    navHostController: NavHostController,
+    key: String
 ) {
+    LaunchedEffect(Unit){
+        viewModel.fetchLatestMovies(key)
+    }
+
     val res = viewModel.res.value
     if (res.isLoading)
         Box(modifier = Modifier.fillMaxSize(), contentAlignment = Center) {

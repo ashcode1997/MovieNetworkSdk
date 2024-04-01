@@ -2,6 +2,8 @@ package com.example.moviesappcompose.features.movies.domain.mapper
 
 import com.example.moviesappcompose.common.base.Mapper
 import com.example.moviesappcompose.data.model.Movies
+import com.example.networksdk.LATEST
+import com.example.networksdk.POPULAR
 import javax.inject.Inject
 
 class MovieMapper @Inject constructor() : Mapper<Movies?, List<Movies.Results>?> {
@@ -17,4 +19,12 @@ class MovieMapper @Inject constructor() : Mapper<Movies?, List<Movies.Results>?>
         }
     }
 
+}
+
+fun ApiMapper(key: String): String {
+    return when (key) {
+        LATEST -> "https://api.themoviedb.org/3/movie/upcoming?api_key=f994296f1aa610c1c468e83ce3fa991b"
+        POPULAR -> "https://api.themoviedb.org/3/movie/popular?api_key=f994296f1aa610c1c468e83ce3fa991b"
+        else -> "https://api.themoviedb.org/3/movie/top_rated?api_key=f994296f1aa610c1c468e83ce3fa991b"
+    }
 }
